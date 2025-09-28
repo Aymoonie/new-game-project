@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://ng0srr8uh46a"]
+
+[ext_resource type="Texture2D" uid="uid://d30somqb5iryg" path="res://character/shawarma transPARENTA.png" id="2_waelg"]
+[ext_resource type="Texture2D" uid="uid://dl8lao0k4f5mv" path="res://character/standyeti transparent (2).png" id="3_82gks"]
+[ext_resource type="Script" uid="uid://e18egupryjkx" path="res://scene/death_zone.gd" id="3_y30ri"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqoya"]
+atlas = ExtResource("3_82gks")
+region = Rect2(0, 0, 360, 340)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_waelg"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.25,
+"texture": ExtResource("2_waelg")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_tqoya")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D" groups=["Player"]]
+
+[node name="William" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, -26.999989)
+scale = Vector2(0.49961925, 0.35614613)
+sprite_frames = SubResource("SpriteFrames_waelg")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="William"]
+position = Vector2(16.012194, 75.81155)
+scale = Vector2(2.0015242, 2.8078363)
+
+[node name="Camera2D" type="Camera2D" parent="William"]
+position = Vector2(16.012194, 75.81155)
+scale = Vector2(2.0015242, 2.8078363)
+
+[node name="GameController" type="Node" parent="."]
+script = ExtResource("3_y30ri")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://4pqund3nukl7"]
+
+[ext_resource type="Texture2D" uid="uid://d30somqb5iryg" path="res://character/shawarma transPARENTA.png" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://dl8lao0k4f5mv" path="res://character/standyeti transparent (2).png" id="2_epypp"]
+[ext_resource type="Script" uid="uid://dyinut40ngu8w" path="res://scene/player.gd" id="3_epypp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqoya"]
+atlas = ExtResource("2_epypp")
+region = Rect2(0, 0, 360, 340)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hol4"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.25,
+"texture": ExtResource("1_0e48y")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_tqoya")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(155, 122)
+
+[node name="William" type="CharacterBody2D" groups=["Player"]]
+
+[node name="William" type="AnimatedSprite2D" parent="." groups=["Player"]]
+position = Vector2(-8, -26.999989)
+scale = Vector2(0.49961925, 0.35614613)
+sprite_frames = SubResource("SpriteFrames_0hol4")
+animation = &"Walk"
+autoplay = "default"
+script = ExtResource("3_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
+position = Vector2(3.5, -24)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]

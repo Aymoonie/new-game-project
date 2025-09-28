@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://clpwt88udwnx4"]
+
+[ext_resource type="AudioStream" uid="uid://chwxlx08kxh0r" path="res://assets/Tranquility - Deep Healing Relaxing Music - Meditation Ambient Music.mp3" id="1_p1osb"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_p1osb")
+autoplay = true
